@@ -1,0 +1,66 @@
+<mvc:View controllerName="training.hours.web.controller.Projects" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+  <SplitApp id="app" initialDetail="detail" backgroundImage="res/background.jpg">
+    <masterPages>
+      <Page id="master">
+        <customHeader>
+          <Bar>
+            <contentLeft>
+              <Button press="onLeave" icon="sap-icon://nav-back"/>
+            </contentLeft>
+            <contentRight>
+              <Button text="{i18n>create}" press="onCreate" type="Accept" icon="sap-icon://add"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <VBox>
+          <SearchField liveChange="onSearch" showSearchButton="false" placeholder="{i18n>search}"/>
+          <List
+            items="{
+              path: '/projects',
+              sorter: {path: 'archived'}
+            }"
+            updateFinished="onProjectsLoaded"
+            itemPress="onShow"
+            growing="true"
+            growingScrollToLoad="true"
+            noDataText=" "
+            id="projectList">
+            <items>
+              <StandardListItem title="{name}" description="{description}" tooltip="{i18n>archived}: {archived}" type="Navigation"/>
+            </items>
+          </List>
+        </VBox>
+      </Page>
+    </masterPages>
+    <detailPages>
+      <Page id="blank"/>
+      <Page id="detail">
+        <content></content>
+      </Page>
+      <Page id="editor">
+        <customHeader>
+          <Bar>
+            <contentRight>
+              <Button text="{i18n>downloadDetails}" press="onDownload" id="downloadButton" type="Emphasized" icon="sap-icon://download" visible="false"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <mvc:XMLView viewName="training.hours.web.view.ProjectEditor"/>
+        </content>
+        <footer>
+          <Bar>
+            <contentRight>
+              <Button text="{i18n>edit}" press="onEdit" type="Emphasized" icon="sap-icon://edit" visible="false" id="editButton"/>
+              <Button text="{i18n>save}" press="onSave" type="Emphasized" icon="sap-icon://save" visible="false" id="saveButton"/>
+              <Button text="{i18n>cancel}" press="onCancel" icon="sap-icon://reset" visible="false" id="cancelButton"/>
+              <Button text="{i18n>archive}" press="onArchive" type="Reject" icon="sap-icon://inbox" visible="false" id="archiveButton"/>
+              <Button text="{i18n>recover}" press="onRecover" type="Accept" icon="sap-icon://outbox" visible="false" id="recoverButton"/>
+              <Button text="{i18n>delete}" press="onDelete" type="Reject" icon="sap-icon://delete" visible="false" id="deleteButton"/>
+            </contentRight>
+          </Bar>
+        </footer>
+      </Page>
+    </detailPages>
+  </SplitApp>
+</mvc:View>

@@ -1,0 +1,34 @@
+<mvc:View xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="training.hours.web.controller.Home"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+  <Shell id="shell" backgroundImage="res/background.jpg">
+    <App id="app" >
+      <pages>
+        <Page showHeader="true">
+          <customHeader>
+            <Bar>
+              <contentRight>
+                <Button text="Light" press="onThemeChange" id="themeButton"/>
+              </contentRight>
+            </Bar>
+          </customHeader>
+          <content>
+            <HBox class="tile-container" alignItems="Center" justifyContent="Center" width="100%" height="100%">
+              <GenericTile press="onShowProjects" header="{i18n>projects}" visible="false" id="projectsTile">
+                <TileContent>
+                  <ImageContent src="sap-icon://task"/>
+                </TileContent>
+              </GenericTile>
+              <GenericTile press="onShowHours" header="{i18n>hours}" id="hoursTile">
+                <TileContent>
+                  <ImageContent src="sap-icon://date-time"/>
+                </TileContent>
+              </GenericTile>
+            </HBox>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>

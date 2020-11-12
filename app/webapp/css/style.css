@@ -1,0 +1,56 @@
+.editor-panel > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.big-title {
+  font-size: 24px;
+}
+
+.padded {
+  padding: 1.5rem;
+}
+
+.padded-small {
+  padding: 1rem;
+}
+
+.vspacing {
+  margin-bottom: 1rem;
+}
+
+.vbox-spacing > *:not(:last-child) {
+  margin-bottom: 1rem
+}
+
+.tile-container > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.weekend-day {
+  color: red !important;
+}
+
+.positive {
+  color: green !important;
+}
+
+.negative {
+  color: red !important;
+}
+
+.date-range-box > *:not(:last-child) {
+  margin-right: .5rem;
+}
+
+/* fixes hours labels overflowing */
+.hours-wrapper .sapMFlexItemAlignAuto {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* -------------------------------- */
+
+.sapMInputBaseReadonlyWrapper {
+    border: none !important;
+    outline: 0 !important;
+}

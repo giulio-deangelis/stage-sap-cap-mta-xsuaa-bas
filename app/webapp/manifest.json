@@ -1,0 +1,154 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "training.hours.web",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "ach": "set-ach",
+    "resources": "resources.json",
+    "dataSources": {
+      "api": {
+        "uri": "/api/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "training.hours.web.view.Home",
+      "type": "XML",
+      "async": true
+    },
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.f": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "training.hours.web.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "dataSource": "api",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "groupId": "$auto",
+          "updateGroupId": "batch",
+          "synchronizationMode": "None",
+          "autoExpandSelect": true
+        }
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "training.hours.web.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false,
+        "bypassed": {
+          "target": []
+        }
+      },
+      "routes": [
+        {
+          "name": "Home",
+          "pattern": "Home",
+          "titleTarget": "",
+          "greedy": false,
+          "target": [
+            "Home"
+          ]
+        },
+        {
+          "name": "Hours",
+          "pattern": "Hours",
+          "titleTarget": "",
+          "greedy": false,
+          "target": [
+            "Hours"
+          ]
+        },
+        {
+          "name": "Projects",
+          "pattern": "Projects",
+          "target": [
+            "Projects"
+          ]
+        }
+      ],
+      "targets": {
+        "Projects": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Projects"
+        },
+        "ProjectEditor": {
+          "viewType": "XML",
+          "viewName": "ProjectEditor"
+        },
+        "Hours": {
+          "viewType": "XML",
+          "viewName": "Hours"
+        },
+        "Home": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Home"
+        }
+      }
+    }
+  }
+}

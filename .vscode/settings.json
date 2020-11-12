@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/.gitignore": true,
+    "**/.git": true,
+    "**/.vscode": true
+  },
+  "sqltools.connections": [],
+  "actions": []
+}

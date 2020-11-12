@@ -1,0 +1,27 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="training.hours.web.controller.ProjectEditor"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<VBox class="padded editor-panel">
+		<VBox width="30rem">
+			<Title text="1. {i18n>projectInfo}" class="big-title"/>
+			<f:SimpleForm id="projectForm">
+				<Label text="{i18n>name}" required="true"/>
+				<Input id="projectName" liveChange="onProjectNameChange" maxLength="100" editable="false"/>
+				<Label text="{i18n>description}"/>
+				<TextArea id="projectDescription" liveChange="onProjectDescriptionChange" maxLength="1000" height="5rem" editable="false"/>
+			</f:SimpleForm>
+		</VBox>
+		<VBox>
+			<Title text="2. {i18n>tasks}" class="big-title"/>
+      <VBox class="vspacing"/>
+      <Title id="allHours"/>
+			<List itemPress="onTaskPress" delete="onTaskRemove" mode="None" id="taskList">
+				<headerToolbar>
+					<OverflowToolbar>
+            <ToolbarSpacer/>
+						<Button text="{i18n>add}" press="onTaskAdd" type="Accept" icon="sap-icon://add" id="addTaskButton" visible="false"/>
+					</OverflowToolbar>
+				</headerToolbar>
+			</List>
+		</VBox>
+	</VBox>
+</mvc:View>

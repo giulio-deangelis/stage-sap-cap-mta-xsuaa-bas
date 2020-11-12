@@ -1,0 +1,16 @@
+{
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/(.*)$",
+      "target": "$1",
+      "authenticationType": "xsuaa",
+      "destination": "srv-api",
+      "csrfProtection": false,
+      "scope": "$XSAPPNAME.admin"
+    }
+  ]
+}

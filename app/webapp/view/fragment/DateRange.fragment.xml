@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout">
+  <Dialog showHeader="false">
+
+    <content>
+      <HBox class="padded-small date-range-box">
+        <DatePicker id="dateStart" valueFormat="dd/MM/yyyy" displayFormat="dd/MM/yyyy" width="8rem"/>
+        <DatePicker id="dateEnd" valueFormat="dd/MM/yyyy" displayFormat="dd/MM/yyyy" width="8rem"/>
+        <Button press="onDateReset" icon="sap-icon://decline"/>
+      </HBox>
+    </content>
+
+      <beginButton>
+        <Button text="{i18n>download}" press="onDownload" type="Emphasized" icon="sap-icon://download"/>
+      </beginButton>
+      <endButton>
+        <Button text="{i18n>cancel}" press="onDownloadCancel" icon="sap-icon://decline"/>
+      </endButton>
+
+  </Dialog>
+</core:FragmentDefinition>

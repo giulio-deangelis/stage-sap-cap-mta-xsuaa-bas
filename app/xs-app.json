@@ -1,0 +1,23 @@
+{
+  "welcomeFile": "/web/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/api/(.*)$",
+      "target": "$1",
+      "authenticationType": "xsuaa",
+      "destination": "srv-api",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/web/(.*)$",
+      "target": "$1",
+      "authenticationType": "xsuaa",
+      "localDir": "webapp",
+      "csrfProtection": false
+    }
+  ]
+}

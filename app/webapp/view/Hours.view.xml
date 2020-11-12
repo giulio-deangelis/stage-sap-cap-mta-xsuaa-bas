@@ -1,0 +1,42 @@
+<mvc:View xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m" controllerName="training.hours.web.controller.Hours"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+  <App id="app" backgroundImage="res/background.jpg">
+    <pages>
+      <Page>
+        <customHeader>
+          <Bar>
+            <contentLeft>
+              <Button press="onLeave" icon="sap-icon://nav-back"/>
+            </contentLeft>
+            <contentRight>
+              <Button press="onRefresh" id="refreshButton" icon="sap-icon://refresh" type="Ghost"/>
+              <DatePicker change="onDateChange" id="date" valueFormat="dd/MM/yyyy" displayFormat="dd/MM/yyyy" width="8rem"/>
+              <Button press="onPreviousFortnight" icon="sap-icon://nav-back"/>
+              <Button press="onNextFortnight" icon="sap-icon://navigation-right-arrow"/>
+              <Button press="onDownload" icon="sap-icon://download" type="Ghost"/>
+            </contentRight>
+          </Bar>
+        </customHeader>
+        <content>
+          <ScrollContainer>
+            <content>
+              <Table mode="MultiSelect" selectionChange="onSelect" noDataText="{i18n>noData}" id="hoursTable">
+                <headerToolbar>
+                  <OverflowToolbar>
+                    <Button text="{i18n>add}" press="onAdd" id="addButton" icon="sap-icon://add" type="Accept"/>
+                    <Button text="{i18n>save}" press="onSave" id="saveButton" icon="sap-icon://save" type="Emphasized" visible="false"/>
+                    <Button text="{i18n>cancel}" press="onCancel" id="cancelButton" icon="sap-icon://decline" visible="false"/>
+                    <Button text="{i18n>edit}" press="onEdit" id="editButton" icon="sap-icon://edit" type="Ghost" visible="false"/>
+                    <Button text="{i18n>remove}" press="onRemove" id="removeButton" icon="sap-icon://delete" type="Reject" visible="false"/>
+                  </OverflowToolbar>
+                </headerToolbar>
+              </Table>
+            </content>
+          </ScrollContainer>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
